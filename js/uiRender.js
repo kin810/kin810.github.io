@@ -52,22 +52,19 @@ var uiRender ={
 	},
 	
 	anchorDivAddMouseClick: function(){
-		alert(1);
-		$("div").each(function (i,v)){
+	
+		$("div").each(function (i,v){
 			
 			var targetHref = $(v).data("hrefTarget");
 			
 			if(typeof(targetHref) != undefined){
+				
 				$(v).on("click", function(){
 					
 					window.location.href = targetHref;
 			
 				});
 			}
-			
-			
-			
-		
 		});
 	
 	},
