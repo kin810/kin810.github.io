@@ -207,9 +207,11 @@ var _debug_panel = {
 	$(".debug_panel").append("<input value='--->' class='debug_swipe_right' type='button' />");
 	
     $(".debug_swipe_left").click(function(){
+	  $(".leapHover").removeClass("leapHover");
       leapUI.test2($(".itemPageArrowImg").get(0));
     });
     $(".debug_swipe_right").click(function(){
+	  $(".leapHover").removeClass("leapHover");
       leapUI.test2($(".itemPageArrowImg").get(1));
     });
     $(".debug_click").click(function(){
