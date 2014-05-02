@@ -8,8 +8,17 @@
 */
 var itemToDisplay = 4;
 
+$(document).ready(function(){
+  load();
+});
+
 function load(){
 	
+  $("<div class='cursor'></div>")
+    .append("<div class='inner'></div>")
+    .appendTo("body");
+    
+    
 	if($("#itemsContainer").length!=0){
 		loadItem();
 		uiRender.updateItemSize();

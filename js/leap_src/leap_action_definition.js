@@ -147,7 +147,7 @@ var leap_loop = function(){
         if(checkContain($(this), $(".cursor"))){
           if($(this).data("pointing")!="true"){
             $(this).data("pointing", "true").addClass("leapHover");
-            timeoutPointedDiv = setTimeout(action.pointed, 1000);
+            timeoutPointedDiv = setTimeout(action.pointed, 3000);
 			//$('body').css('cursor', 'progress'); 
 			
 			//leapUI.selectItem();
