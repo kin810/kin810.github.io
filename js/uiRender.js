@@ -65,7 +65,7 @@ var uiRender ={
 			
 				});
 			}else{
-				console.log("123123123123");
+				// do nothing
 			}
 		});
 	

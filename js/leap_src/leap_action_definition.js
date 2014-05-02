@@ -196,7 +196,9 @@ var _debug_panel = {
 	$(".debug_panel").append("<input value='<<' class='debug_selectPrevRecord' type='button' />");
 	$(".debug_panel").append("<input value='>>' class='debug_selectNextRecord' type='button' />");
 	
-	
+	$(".debug_panel").append("<input value='Select mainMenu(First)' class='debug_selectMainMenu_1' type='button' />");
+	$(".debug_panel").append("<input value='<<' class='debug_selectPrevMainMenu' type='button' />");
+	$(".debug_panel").append("<input value='>>' class='debug_selectNextMainMenu' type='button' />");	
 	
     $(".debug_swipe_left").click(function(){
       action.swipeLeft();
@@ -248,6 +250,25 @@ var _debug_panel = {
 		$(".leapHover").removeClass("leapHover");
 		leapUI.test2($(".ui-accordion-header").get(selectedItem-1));
     });
+	
+	
+	$(".debug_selectMainMenu_1").click(function(){
+		$(".leapHover").removeClass("leapHover");
+		leapUI.test2($(".ui-accordion-header:first"));
+    });
+	$(".debug_selectNextMainMenu").click(function(){
+		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
+		$(".leapHover").removeClass("leapHover");
+		leapUI.test2($(".ui-accordion-header").get(selectedItem+1));
+    });
+	
+	$(".debug_selectPrevMainMenu").click(function(){
+		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
+		$(".leapHover").removeClass("leapHover");
+		leapUI.test2($(".ui-accordion-header").get(selectedItem-1));
+    });	
+	
+	
 	
 	
     
