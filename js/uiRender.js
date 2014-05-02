@@ -64,6 +64,8 @@ var uiRender ={
 					window.location.href = targetHref;
 			
 				});
+			}else{
+				console.log("123123123123");
 			}
 		});
 	
