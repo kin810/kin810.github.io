@@ -267,3 +267,8 @@
 				cursor:progress !important;
 			
 			}
+			
+			.ui-accordion .ui-accordion-header{
+				padding :2em 6em !important;
+			}
+			
