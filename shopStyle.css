@@ -286,3 +286,8 @@ body a{
   height: 100%;
   background: #fff;
 }
+
+.menuTextLabel{
+	font-size:45px;
+	font-weight:bold;
+}

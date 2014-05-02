@@ -56,7 +56,7 @@ var uiRender ={
 		$("div").each(function (i,v){
 			
 			var targetHref = $(v).data("href-target");
-			console.log(targetHref);
+			
 			if(typeof(targetHref) != "undefined"){
 				
 				$(v).on("click", function(){
