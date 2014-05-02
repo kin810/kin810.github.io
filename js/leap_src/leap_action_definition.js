@@ -254,16 +254,16 @@ var _debug_panel = {
 	
 	$(".debug_selectMainMenu_1").click(function(){
 		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".mainMenuContainer"));
+		leapUI.test2($(".mainMenuContainer:first"));
     });
 	$(".debug_selectNextMainMenu").click(function(){
-		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
+		var selectedItem = $(".mainMenuContainer").index($(".leapHover"));		
 		$(".leapHover").removeClass("leapHover");
 		leapUI.test2($(".mainMenuContainer").get(selectedItem+1));
     });
 	
 	$(".debug_selectPrevMainMenu").click(function(){
-		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
+		var selectedItem = $(".mainMenuContainer").index($(".leapHover"));		
 		$(".leapHover").removeClass("leapHover");
 		leapUI.test2($(".mainMenuContainer").get(selectedItem-1));
     });	
