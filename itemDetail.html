@@ -11,6 +11,8 @@
 		<script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
 		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
+		<script src="./js/loader.js"> </script>
+    <script src="./js/uiRender.js"></script>
 		<script src="./js/leap_src/leap_action.js"></script>
 		<script src="./js/leap_src/leap_ui.js"></script>
 		<script src="./js/leap_src/leap_action_definition.js"></script>
@@ -128,6 +130,13 @@ img.image:hover{border:1px solid #555;}
 .buyNow:hover{background-color:#7491f7;}
 .addToCart:hover{background-color:#ffc77d;}
 
+.commentContainer{margin-left:4px;}
+.commentItem{border:1px solid #ddd;margin-top:4px;margin-left:4px;}
+
+.commentInfo{padding:4px 8px;color:#555;border-bottom:1px solid #ddd;background-color:#fffae8;}
+span.commentDatetime{float:right;}
+.commentContent{padding:4px 8px;min-height:50px;}
+
 </style>
 
 </head>
@@ -135,36 +144,63 @@ img.image:hover{border:1px solid #555;}
 		
 <div class="bodyWidth">
 
-<div class="right_div">
-  <img class="image" src="" />
-  
-  <div class="buyNow pointable">Buy Now</div>
-  <div class="addToCart">Add to Cart</div>
-</div>
+  <div class="right_div">
+    <img class="image" src="" />
+    
+    <div class="buyNow pointable">Buy Now</div>
+    <div class="addToCart">Add to Cart</div>
+  </div>
+
+  <!-- The item name -->
+  <div class="header"></div>
+
+  <div class="content">
+
+    <div class="priceDiv">Price: HK$ <span class="itemPrice"></span></div>
+    <div class="ratingsDiv">Ratings: <span class="rating"></span> / 5.0</div>
 
 
 
-<div class="header"></div>
-
-<div class="content">
-
-  <div class="priceDiv">Price: HK$ <span class="itemPrice"></span></div>
-  <div class="ratingsDiv">Ratings: <span class="rating"></span> / 5.0</div>
+    <div class="sectionTitle"><span>Description</span></div>
+    <div class="description"></div>
 
 
-
-  <div class="sectionTitle"><span>Description</span></div>
-  <div class="description"></div>
-
-
-  <div class="sectionTitle"><span>User Comments</span></div>
-  <div class="description"></div>
+    <div class="sectionTitle"><span>User Comments</span></div>
+    <div class="commentContainer">
+    
+      <div class="commentItem">
+        <div class="commentInfo">
+          Comment 1, posted by KIN
+          <span class="commentDatetime">5:19 31 March, 2014</span>
+        </div>
+        <div class="commentContent">
+          This item is excellent! I strongly recommend it! Buy it immediately!
+        </div>
+      </div>
+    
+      <div class="commentItem">
+        <div class="commentInfo">
+          Comment 2, posted by ALEX
+          <span class="commentDatetime">16:32 6 April, 2014</span>
+        </div>
+        <div class="commentContent">
+          O like this item very much!
+        </div>
+      </div>
+    
+    </div>
   
   
   </div>
 </div>
 
+
+
 <script>
+var showBox = function(){
+  
+};
+
 $(".buyNow").click(function(){
   
 });
