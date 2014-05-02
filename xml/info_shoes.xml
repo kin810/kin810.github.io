@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<items>
+	<item>
+		<name>Cotton Sneaker - Size : S</name>
+		<desc>Cotton Sneaker.</desc>
+		<imageName>S1S.jpg</imageName>
+		<price>299</price>
+		<rate>4.2</rate>
+	</item>
+	<item>
+		<name>Cotton Sneaker - Size : M</name>
+		<desc>Cotton Sneaker.</desc>
+		<imageName>S1M.jpg</imageName>
+		<price>299</price>
+		<rate>4.6</rate>
+	</item>
+	<item>
+		<name>Cotton Sneaker - Size : L</name>
+		<desc>Cotton Sneaker.</desc>
+		<imageName>S1L.jpg</imageName>
+		<price>299</price>
+		<rate>3.2</rate>
+	</item>
+	<item>
+		<name>Good Fit Sneakers White - Womens - Size : S</name>
+		<desc>Good Fit Sneakers White - Womens.</desc>
+		<imageName>S2S.jpg</imageName>
+		<price>220</price>
+		<rate>3.6</rate>
+	</item>
+	<item>
+		<name>Good Fit Sneakers White - Womens - Size : M</name>
+		<desc>Good Fit Sneakers White - Womens.</desc>
+		<imageName>S2M.jpg</imageName>
+		<price>220</price>
+		<rate>4.6</rate>
+	</item>	
+	<item>
+		<name>Good Fit Sneakers White - Womens - Size : L</name>
+		<desc>Good Fit Sneakers White - Womens.</desc>
+		<imageName>S2L.jpg</imageName>
+		<price>220</price>
+		<rate>4.6</rate>
+	</item>
+	<item>
+		<name>Narrow Obi Beach Sandals - Size : S</name>
+		<desc>Narrow Obi Beach Sandals.</desc>
+		<imageName>S3S.jpg</imageName>
+		<price>165</price>
+		<rate>3.5</rate>
+	</item>
+	<item>
+		<name>Narrow Obi Beach Sandals - Size : M</name>
+		<desc>Narrow Obi Beach Sandals.</desc>
+		<imageName>S3M.jpg</imageName>
+		<price>165</price>
+		<rate>2.5</rate>
+	</item>
+	<item>
+		<name>Narrow Obi Beach Sandals - Size : L</name>
+		<desc>Narrow Obi Beach Sandals.</desc>
+		<imageName>S3L.jpg</imageName>
+		<price>165</price>
+		<rate>4.2</rate>
+	</item>
+	<item>
+		<name>Good Fit Flat Ballet Shoes - Size : S</name>
+		<desc>Good Fit Flat Ballet Shoes.</desc>
+		<imageName>S4S.jpg</imageName>
+		<price>655</price>
+		<rate>3.7</rate>
+	</item>
+	<item>
+		<name>Good Fit Flat Ballet Shoes - Size : M</name>
+		<desc>Good Fit Flat Ballet Shoes.</desc>
+		<imageName>S4M.jpg</imageName>
+		<price>655</price>
+		<rate>4.7</rate>
+	</item>
+	<item>
+		<name>Good Fit Flat Ballet Shoes - Size : L</name>
+		<desc>Good Fit Flat Ballet Shoes.</desc>
+		<imageName>S4L.jpg</imageName>
+		<price>655</price>
+		<rate>4.2</rate>
+	</item>
+	<item>
+		<name>Cotton Shoes - Size : S</name>
+		<desc>Cotton Shoes.</desc>
+		<imageName>S5S.jpg</imageName>
+		<price>450</price>
+		<rate>2.8</rate>
+	</item>
+	<item>
+		<name>Cotton Shoes - Size : M</name>
+		<desc>Cotton Shoes.</desc>
+		<imageName>S5M.jpg</imageName>
+		<price>450</price>
+		<rate>5.0</rate>
+	</item>
+	<item>
+		<name>Cotton Shoes - Size : L</name>
+		<desc>Cotton Shoes.</desc>
+		<imageName>S5L.jpg</imageName>
+		<price>450</price>
+		<rate>4.4</rate>
+	</item>
+</items>	

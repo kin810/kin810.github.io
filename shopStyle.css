@@ -1,0 +1,269 @@
+			body{
+				margin:0px;
+				background: #e8e8e8; /* Old browsers */
+				background: -moz-linear-gradient(45deg,  #e8e8e8 0%, #ffffff 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#e8e8e8), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(45deg,  #e8e8e8 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(45deg,  #e8e8e8 0%,#ffffff 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(45deg,  #e8e8e8 0%,#ffffff 100%); /* IE10+ */
+				background: linear-gradient(45deg,  #e8e8e8 0%,#ffffff 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+					
+				font-family:Arial;
+				color:#444444;
+				text-align:center;
+			}
+			
+			body a{
+				color:#444444;
+			}
+			
+			
+			.PageTitle{	
+				position:absolute;
+				width: 100%;
+				top: 10%;
+				font-size: 60px;
+				font-weight: bold;
+				text-shadow: 7px 7px 8px rgba(150, 150, 150, 0.8);
+			}
+			
+			.shopMenuImg{
+				border:0px;
+				width:250px;
+				height:200px;
+			}
+			
+			.shopButtonImg{
+				border:0px;
+				width:50px;
+				height:50px;
+				vertical-align:middle;
+				padding:0px 50px;
+			}
+			
+			.mainMenuWrapper{
+				width:90%;
+				height:50%;
+				margin:auto;
+			}
+		
+			.mainMenuWrapper > .mainMenuContainer{
+				width:45%;
+				height:100%;
+				margin: 10px;
+				float:left;
+				padding:2px;
+			}
+			
+			.mainMenuWrapper > .mainMenuContainer > .mainMenuContent{
+				border: 2px solid #777777;
+				border-radius:5px;
+				width:100%;
+				height:100%;
+				
+			}
+			
+			.mainMenuWrapper > .mainMenuContainer > .mainMenuContent >*>.mainMenuText{
+				text-align:center;
+				font-size:45px;
+				font-weight:bold;
+				color:#444444;
+			}
+			
+			.mainMenuWrapper > .mainMenuContainer > .mainMenuContent:hover{
+				opacity:0.75;
+			}
+			
+			#productListWrapper{
+				width:80%;
+				height:80%;
+				margin:auto;
+			}
+			
+			#productListWrapper > .productListHeader{
+				height:15%;
+			}
+			
+			#productListWrapper > .productListContainer{
+				height:85%;
+				width:75%;
+				margin:auto;
+				display:block; 
+			
+			}
+		
+			#productListWrapper > .productListContainer>.productListItem{
+				width:90%;
+				height:100px;
+				margin:5px auto;
+				border-radius:3px;
+				border:1px solid #dedede;
+				background-color:#ffffff;
+			
+			}
+			/*
+			.productListWrapper > .productListContainer>.productListItem:hover{
+				opacity:0.75;
+				
+			}*/
+			
+			.hoverHighlight:hover{
+				opacity:0.75
+			}
+			
+			#productListWrapper > .productListContainer>.productListItem .listItemText{
+				font-weight:bold;
+				font-size:32px;
+				padding:0px 50px;
+				
+			}
+			
+			#productListWrapper > .productListContainer>.productListItem .listItemDetail{
+				font-size:16px;
+				
+				padding:5px 30px;
+			}
+			
+			.menuTitle{
+				font-size:60px;
+				font-weight:bold;
+				text-shadow: 7px 7px 8px rgba(150, 150, 150, 0.8);
+			}
+			
+			.buttonLink{
+				font-weight:bold;
+				font-size:32px;
+				text-align:center;
+				border-radius:3px;
+				border:1px solid #cccccc;
+				margin:10px 0px;
+			}
+		
+			
+			/*Styling*/
+			.gradientBlue{
+				background: #f0f9ff; /* Old browsers */
+				background: -moz-linear-gradient(top,  #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
+			}
+			
+			.includeShadow{
+				-webkit-box-shadow: 8px 8px 11px 0px rgba(50, 50, 50, 0.5);
+				-moz-box-shadow:    8px 8px 11px 0px rgba(50, 50, 50, 0.5);
+				box-shadow:         8px 8px 11px 0px rgba(50, 50, 50, 0.5);
+			}
+			
+			/* other: */
+			.verticalAlignMiddle{
+				display:table;
+				width:100%;
+				height:100%;
+			}
+			.verticalAlignMiddle>*{
+				vertical-align:middle;
+				display:table-cell; 
+			}
+
+			
+			.backButton{
+				height:75px;
+				width:200px;
+				left:100px;
+				position:relative;
+				cursor:pointer;
+			}
+			
+			
+			
+			
+			/*
+			#
+			#
+			#		leap CSS
+			#
+			#
+			*/
+			.leapHover{
+				-webkit-box-shadow: 0 0 0 10px #FFE251;
+				box-shadow: 0 0 0 10px #FFE251;
+			}
+			
+			
+			
+			
+			
+			/*
+				order history
+				
+				cart
+			
+			*/
+			
+			
+			.recordHeader{
+				width:50%;
+				display:inline-block;
+			}
+			
+			.recordHeaderLeft{
+				text-align:left;
+			}
+			
+			.recordHeaderSubText{
+				font-size:12px;
+				color:#666666;
+				padding:0px 10px;
+				
+			}
+			
+			.recordHeaderRight{
+				text-align:right;
+			}			
+			
+			.deliveryText{
+				color:#2758F0;
+			
+			}
+			
+			.recordTableNameCol{
+				width:200px;
+				text-align:left;
+				vertical-align:top;
+			}
+				
+			.recordTableColonCol{
+				width:30px;
+				text-align:left;
+				vertical-align:top;
+			}
+			
+			
+			.addButtonImg{
+				width:25px;
+				height:25px;
+				float:left;
+			}
+			
+			.minusButtonImg{
+				width:25px;
+				height:25px;
+				float:right;
+			}			
+			
+			
+			.recordTableValueCol{
+				width:600px;
+				text-align:left;
+				vertical-align:top;
+			}
+			
+			.waiting1Sec{
+				cursor:progress !important;
+			
+			}

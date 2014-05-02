@@ -1,0 +1,165 @@
+<html>
+	<head>
+  
+    <title>LeapMoShop - Item details</title>
+    
+		<link href="itemList.css" rel="stylesheet">
+		<link href="shopStyle.css" rel="stylesheet">
+		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="//js.leapmotion.com/0.2.2/leap.min.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+		<script src="./js/leap_src/leap_action.js"></script>
+		<script src="./js/leap_src/leap_ui.js"></script>
+		<script src="./js/leap_src/leap_action_definition.js"></script>
+		
+<script>
+
+
+function QueryString(name) 
+{
+  var AllVars = window.location.search.substring(1);
+  var Vars = AllVars.split("&");
+  for (i = 0; i < Vars.length; i++)
+  {
+    var Var = Vars[i].split("=");
+    if (Var[0] == name) return Var[1];
+  }
+  return "";
+}
+
+var category = QueryString("category").toLowerCase();
+var item_id = QueryString("id");
+
+item_id = parseInt(item_id);
+
+console.log("category = " + category);
+console.log("item_id = " + item_id);
+
+var xmlFileName = "";
+
+switch(category){
+  case "trousers": xmlFileName = "info_trousers.xml";break;
+  case "socks": xmlFileName = "info_legwear.xml";break;
+  case "shoes": xmlFileName = "info_shoes.xml";break;
+  case "clothes": xmlFileName = "info_clothing.xml";
+  default: xmlFileName = "info_clothing.xml";
+}
+xmlFileName = "./xml/" + xmlFileName;
+
+$(document).ready(function () {
+  $.ajax({
+    type: "GET",
+    url: xmlFileName,
+    cache: false,
+    dataType: "xml",
+    success: function(xml) {
+      $(xml).find('item:eq('+ item_id +')').each(function(){
+        var _this = $(this);
+        console.log(_this.html());
+        console.log(_this.find("name").text());
+        console.log(_this.find("desc").text());
+        console.log(_this.find("imageName").text());
+        console.log(_this.find("price").text());
+        console.log(_this.find("rate").text());
+        
+        $(".header").html(_this.find("name").text());
+        $(".description").html(_this.find("desc").text());
+        $(".itemPrice").html(_this.find("price").text());
+        $(".header").html(_this.find("name").text());
+        $(".rating").html(_this.find("rate").text());
+        
+        $(".image").attr("src", "./shopItemImage/" + _this.find("imageName").text());
+        
+      });
+    }
+  });
+});
+
+
+
+
+</script>
+<style>
+body{text-align:center;}
+.bodyWidth{
+  width:900px;margin:10px auto;border:1px solid #ddd;background-color:#fff;min-height:500px;
+  text-align:left;
+}
+
+div.header{
+  font-size:1.5em;padding:18px;padding-top:30px;border-bottom:1px solid #ddd;
+  background-color:#fbfbfb;
+}
+
+div.content{text-align:left}
+.priceDiv, .ratingsDiv{
+  display:inline-block;font-size:1.3em;padding:10px 20px;color:#29851b;
+}
+
+div.sectionTitle{border-bottom:1px solid #ddd;padding:5px 8px;margin-top:12px;}
+div.sectionTitle span{
+  border:1px solid #ddd;border-bottom:none;padding:6px 8px;
+  background-color:#FFFBE2;
+}
+div.description{padding:20px;max-width:640px;}
+
+
+.right_div{float:right;}
+img.image{
+  padding:4px;
+  border:1px solid #ddd;width:220px;
+  background-color:#fff;margin-right:14px;margin-top:14px;
+}
+img.image:hover{border:1px solid #555;}
+
+
+.buyNow, .addToCart{
+  padding:12px;font-size:1.2em;text-align:center;margin:2px 0;width:206px;
+  cursor:pointer;color:#fff;
+}
+.buyNow{background-color:#2d29a3;}
+.addToCart{background-color:#ff9d00;}
+.buyNow:hover{background-color:#7491f7;}
+.addToCart:hover{background-color:#ffc77d;}
+
+</style>
+
+</head>
+<body>
+		
+<div class="bodyWidth">
+
+<div class="right_div">
+  <img class="image" src="" />
+  
+  <div class="buyNow">Buy Now</div>
+  <div class="addToCart">Add to Cart</div>
+</div>
+
+
+
+<div class="header"></div>
+
+<div class="content">
+
+  <div class="priceDiv">Price: HK$ <span class="itemPrice"></span></div>
+  <div class="ratingsDiv">Ratings: <span class="rating"></span> / 5.0</div>
+
+
+
+  <div class="sectionTitle"><span>Description</span></div>
+  <div class="description"></div>
+
+
+  <div class="sectionTitle"><span>User Comments</span></div>
+  <div class="description"></div>
+  
+  
+  </div>
+</div>
+    
+	</body>
+</html>
