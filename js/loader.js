@@ -45,6 +45,10 @@ function load(){
 		$(".ui-accordion-header").each(function(i,v){
 			$(v).addClass("pointable");
 		});
+	}else if($(".mainMenuContainer").length != 0){
+	
+		console.log(123);
+	
 	}
 	
 	uiRender.addBackButtonEvent();
