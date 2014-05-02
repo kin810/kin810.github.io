@@ -52,7 +52,7 @@ function load(){
 	}
 	
 	uiRender.addBackButtonEvent();
-	
+	uiRender.anchorDivAddMouseClick();
 	
 }
 

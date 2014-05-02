@@ -51,6 +51,26 @@ var uiRender ={
 		
 	},
 	
+	anchorDivAddMouseClick: function(){
+	
+		$("div").each(function (i,v){
+			
+			var targetHref = $(v).data("hrefTarget");
+			
+			if(typeof(targetHref) != undefined){
+				
+				$(v).on("click", function(){
+					
+					window.location.href = targetHref;
+			
+				});
+			}else{
+				console.log("123123123123");
+			}
+		});
+	
+	},
+	
 	addBackButtonEvent: function(){
 		$(".backButton").addClass("pointable").on("click",function(){
 			history.go(-1);
