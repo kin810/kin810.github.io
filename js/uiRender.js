@@ -52,7 +52,7 @@ var uiRender ={
 	},
 	
 	anchorDivAddMouseClick: function(){
-		
+		alert(1);
 		$("div").each(function (i,v)){
 			
 			var targetHref = $(v).data("hrefTarget");
