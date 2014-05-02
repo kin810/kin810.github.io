@@ -254,18 +254,18 @@ var _debug_panel = {
 	
 	$(".debug_selectMainMenu_1").click(function(){
 		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".ui-accordion-header:first"));
+		leapUI.test2($(".mainMenuContainer"));
     });
 	$(".debug_selectNextMainMenu").click(function(){
 		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
 		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".ui-accordion-header").get(selectedItem+1));
+		leapUI.test2($(".mainMenuContainer").get(selectedItem+1));
     });
 	
 	$(".debug_selectPrevMainMenu").click(function(){
 		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
 		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".ui-accordion-header").get(selectedItem-1));
+		leapUI.test2($(".mainMenuContainer").get(selectedItem-1));
     });	
 	
 	
