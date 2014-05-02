@@ -182,34 +182,35 @@ var _debug_panel = {
       })
       .appendTo("body");
     
-    $(".debug_panel").append("<input value='Swipe Left' class='debug_swipe_left' type='button' />");
-    $(".debug_panel").append("<input value='Swipe Right' class='debug_swipe_right' type='button' />");
+    $(".debug_panel").append("<input value='<---' class='debug_swipe_left' type='button' />");
+    
     $(".debug_panel").append("<input value='Click' class='debug_click' type='button' />");
     $(".debug_panel").append("<input value='5 Fingers' class='debug_five_finger' type='button' />");
     $(".debug_panel").append("<input value='0 Fingers' class='debug_zero_finger' type='button' />");
 
-	$(".debug_panel").append("<input value='Select item(1)' class='debug_selectItem_1' type='button' />");
+	$(".debug_panel").append("<input value='Select Item' class='debug_selectItem_1' type='button' />");
 	$(".debug_panel").append("<input value='<<' class='debug_selectPrevItem' type='button' />");
 	$(".debug_panel").append("<input value='>>' class='debug_selectNextItem' type='button' />");
 	
-	$(".debug_panel").append("<input value='Select record(First)' class='debug_selectRecord_1' type='button' />");
+	$(".debug_panel").append("<input value='Select Order/Cart record' class='debug_selectRecord_1' type='button' />");
 	$(".debug_panel").append("<input value='<<' class='debug_selectPrevRecord' type='button' />");
 	$(".debug_panel").append("<input value='>>' class='debug_selectNextRecord' type='button' />");
 	
-	$(".debug_panel").append("<input value='Select Menu(First)' class='debug_selectMainMenu_1' type='button' />");
+	$(".debug_panel").append("<input value='Select Menu' class='debug_selectMainMenu_1' type='button' />");
 	$(".debug_panel").append("<input value='<<' class='debug_selectPrevMainMenu' type='button' />");
 	$(".debug_panel").append("<input value='>>' class='debug_selectNextMainMenu' type='button' />");	
 	
-	$(".debug_panel").append("<input value='Select ProductListItem(First)' class='debug_selectProductListItem_1' type='button' />");
+	$(".debug_panel").append("<input value='Select Product Category' class='debug_selectProductListItem_1' type='button' />");
 	$(".debug_panel").append("<input value='<<' class='debug_selectPrevProductListItem' type='button' />");
 	$(".debug_panel").append("<input value='>>' class='debug_selectNextProductListItem' type='button' />");	
 	
+	$(".debug_panel").append("<input value='--->' class='debug_swipe_right' type='button' />");
 	
     $(".debug_swipe_left").click(function(){
-      action.swipeLeft();
+      leapUI.test2($(".itemPageArrowImg").get(0));
     });
     $(".debug_swipe_right").click(function(){
-      action.swipeRight();
+      leapUI.test2($(".itemPageArrowImg").get(1));
     });
     $(".debug_click").click(function(){
       action.pointed();
