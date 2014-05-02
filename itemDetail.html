@@ -94,7 +94,10 @@ div.header{
   background-color:#fbfbfb;
 }
 
-div.content{text-align:left}
+div.content{
+  text-align:left;
+  max-width:650px;
+}
 .priceDiv, .ratingsDiv{
   display:inline-block;font-size:1.3em;padding:10px 20px;color:#29851b;
 }
@@ -135,7 +138,7 @@ img.image:hover{border:1px solid #555;}
 <div class="right_div">
   <img class="image" src="" />
   
-  <div class="buyNow">Buy Now</div>
+  <div class="buyNow pointable">Buy Now</div>
   <div class="addToCart">Add to Cart</div>
 </div>
 
@@ -160,6 +163,16 @@ img.image:hover{border:1px solid #555;}
   
   </div>
 </div>
-    
-	</body>
+
+<script>
+$(".buyNow").click(function(){
+  
+});
+
+$(".addToCart").click(function(){
+  
+});
+
+</script>
+</body>
 </html>
