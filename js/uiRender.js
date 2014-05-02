@@ -58,12 +58,12 @@ var uiRender ={
 			var targetHref = $(v).data("hrefTarget");
 			
 			if(typeof(targetHref) != undefined){
-				
-				$(v).on("click", function(){
+				console.log(targetHref);
+				//$(v).on("click", function(){
 					
-					window.location.href = targetHref;
+				//	window.location.href = targetHref;
 			
-				});
+			//	});
 			}else{
 				console.log("123123123123");
 			}
