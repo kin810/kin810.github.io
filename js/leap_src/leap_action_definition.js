@@ -239,12 +239,24 @@ var leap_loop = function(){
             clearTimeout(timeoutPointedDiv);
             timeoutPointedDiv = setTimeout(action.pointed, 5000);
             //console.log("start "+  $(this).attr('id'));
+			
+			
+			//need testing, should be ok
+			$('body').append("<img src='image/loading_5sec.gif' id='temp_id_loading'/>")
+			$('#temp_id_loading').css('position', 'absolute');
+			$('#temp_id_loading').css('top', $(this).offset().top);
+			$('#temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
+			
           }
         }else{
           if($(this).data("pointing")=="true"){
             $(this).removeClass("leapHover").data("pointing", "");
             console.log("stop "+  $(this).attr('id'));
             //clearTimeout(timeoutPointedDiv);
+			
+			//need testing 2
+			$('#temp_id_loading').remove();
+			
           }
         }
       });
