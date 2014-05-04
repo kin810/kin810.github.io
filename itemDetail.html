@@ -162,6 +162,9 @@ div.quantityInputDiv{margin:10px;}
 div.popupInfoHeader{color:#000;font-size:1.3em;margin:10px;}
 div.popupInfoTip{color:#777;font-size:1em;margin:10px;}
 
+.popupShippingInfoTextarea{display:none;}
+.popupShippingInfoTextarea textarea{width:100%;height:80px;}
+
 </style>
 
 </head>
@@ -292,7 +295,12 @@ var showBox = function(type){
   
   toAppend += "<div class='popupInfoDiv'><div class='popupInfoHeader'>Please enter the quantity:</div><div class='quantityInputDiv'><input type='text' class='quantityInput pointable' /></div>";
   toAppend += "<div class='popupInfoTip'>Input with Leap Motion enabled (1-5 items only).<br/>Use \"0 Finger\" to Cancel</div></div>";
-  toAppend += "<div class='popupShippingInfo'>Use your default Shipping Address. <span>Change</span></div>";
+  
+  if(type=="buyNow"){
+    toAppend += "<div class='popupShippingInfo'><div>Use your default Shipping Address. <span class='changeAddr'>Change</span></div>";
+    toAppend += "<div class='popupShippingInfoTextarea'><textarea>Flat 1, \nSilent Hill 1-2-3-4, \nCabin Woods, \nDistrict 9</textarea></div></div>";
+  }
+  
   toAppend += "<div class='popupButtonDiv'><div class='closeBox pointable'>Cancel</div>" + _toAdd + "</div>";
   toAppend += "</div>";
   
@@ -302,6 +310,13 @@ var showBox = function(type){
     
   $(".quantityInput").focus().click(function(){$(this).select()});
   _showingPopup = true;
+  
+  if(type=="buyNow"){
+    $(".changeAddr").click(function(){
+      $(this).parent().siblings(".popupShippingInfoTextarea").toggle();
+    });
+  }
+  
   
   $(".buyNowPopup").click(function(){
     var val = $(".quantityInput:visible").val();
