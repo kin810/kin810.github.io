@@ -6,18 +6,63 @@
  *
  */
 
- 
+var __config = {
+  enable_finger: false,
+};
+
 var action = {
   
   // Leave blank for undefined actions
   zeroFinger : function(){
-  
+    if(__config.enable_finger && _showingPopup){
+      // close the popup box
+      $(".closeBox").trigger("click");
+      
+    }
   
   },
   
+  oneFinger : function(){
+    if(__config.enable_finger && _showingPopup){
+      // put the value
+      $(".quantityInput").val("1").blur();
+      
+    }
+  
+  },
+  
+  twoFinger : function(){
+    if(__config.enable_finger && _showingPopup){
+      // put the value
+      $(".quantityInput").val("2").blur();
+      
+    }
+  
+  },
+  
+  threeFinger : function(){
+    if(__config.enable_finger && _showingPopup){
+      // put the value
+      $(".quantityInput").val("3").blur();
+      
+    }
+  
+  },
+  
+  fourFinger : function(){
+    if(__config.enable_finger && _showingPopup){
+      // put the value
+      $(".quantityInput").val("4").blur();
+      
+    }
+  },
+  
   fiveFinger : function(){
-  
-  
+    if(__config.enable_finger && _showingPopup){
+      // put the value
+      $(".quantityInput").val("5").blur();
+      
+    }
   },
   
   swipeLeft: function(){

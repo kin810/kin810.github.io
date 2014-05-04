@@ -2,7 +2,12 @@
 var prevHands = 0;
 var prevFingers = 0;
 var timeoutZeroFingers;
+var timeoutOneFingers;
+var timeoutTwoFingers;
+var timeoutThreeFingers;
+var timeoutFourFingers;
 var timeoutFiveFingers;
+
 var timeoutPointedDiv;
 var width;
 var height;
@@ -28,6 +33,18 @@ var showAction = function(toDirection){
     if(prevFingers == 0){
       action.zeroFinger();
       
+    }else if (prevFingers == 1){
+      action.oneFinger();
+    
+    }else if (prevFingers == 2){
+      action.twoFinger();
+    
+    }else if (prevFingers == 3){
+      action.threeFinger();
+    
+    }else if (prevFingers == 4){
+      action.fourFinger();
+    
     }else if (prevFingers == 5){
       action.fiveFinger();
     
@@ -82,6 +99,63 @@ var leap_loop = function(){
         prevFingers = 5;
         timeoutFiveFingers = setTimeout(showAction, 1000);
         clearTimeout(timeoutZeroFingers);
+        clearTimeout(timeoutOneFingers);
+        clearTimeout(timeoutTwoFingers);
+        clearTimeout(timeoutThreeFingers);
+        clearTimeout(timeoutFourFingers);
+        //clearTimeout(timeoutFiveFingers);
+      }
+    }else if(hands==1 && fingers==4){
+      if(prevFingers!=4 || prevHands!=1){
+        //console.log("[hands==1 && fingers==0 && prevFingers!=0] matched");
+        prevHands = 1;
+        prevFingers = 4;
+        timeoutFourFingers = setTimeout(showAction, 1000);
+        clearTimeout(timeoutZeroFingers);
+        clearTimeout(timeoutOneFingers);
+        clearTimeout(timeoutTwoFingers);
+        clearTimeout(timeoutThreeFingers);
+        //clearTimeout(timeoutFourFingers);
+        clearTimeout(timeoutFiveFingers);
+      }
+    }else if(hands==1 && fingers==3){
+      if(prevFingers!=3 || prevHands!=1){
+        //console.log("[hands==1 && fingers==0 && prevFingers!=0] matched");
+        prevHands = 1;
+        prevFingers = 3;
+        timeoutThreeFingers = setTimeout(showAction, 1000);
+        clearTimeout(timeoutZeroFingers);
+        clearTimeout(timeoutOneFingers);
+        clearTimeout(timeoutTwoFingers);
+        //clearTimeout(timeoutThreeFingers);
+        clearTimeout(timeoutFourFingers);
+        clearTimeout(timeoutFiveFingers);
+      }
+    }else if(hands==1 && fingers==2){
+      if(prevFingers!=2 || prevHands!=1){
+        //console.log("[hands==1 && fingers==0 && prevFingers!=0] matched");
+        prevHands = 1;
+        prevFingers = 2;
+        timeoutTwoFingers = setTimeout(showAction, 1000);
+        clearTimeout(timeoutZeroFingers);
+        clearTimeout(timeoutOneFingers);
+        //clearTimeout(timeoutTwoFingers);
+        clearTimeout(timeoutThreeFingers);
+        clearTimeout(timeoutFourFingers);
+        clearTimeout(timeoutFiveFingers);
+      }
+    }else if(hands==1 && fingers==1){
+      if(prevFingers!=1 || prevHands!=1){
+        //console.log("[hands==1 && fingers==0 && prevFingers!=0] matched");
+        prevHands = 1;
+        prevFingers = 1;
+        timeoutOneFingers = setTimeout(showAction, 1000);
+        clearTimeout(timeoutZeroFingers);
+        //clearTimeout(timeoutOneFingers);
+        clearTimeout(timeoutTwoFingers);
+        clearTimeout(timeoutThreeFingers);
+        clearTimeout(timeoutFourFingers);
+        clearTimeout(timeoutFiveFingers);
       }
     }else if(hands==1 && fingers==0){
       if(prevFingers!=0 || prevHands!=1){
@@ -89,18 +163,33 @@ var leap_loop = function(){
         prevHands = 1;
         prevFingers = 0;
         timeoutZeroFingers = setTimeout(showAction, 1000);
+        //clearTimeout(timeoutZeroFingers);
+        clearTimeout(timeoutOneFingers);
+        clearTimeout(timeoutTwoFingers);
+        clearTimeout(timeoutThreeFingers);
+        clearTimeout(timeoutFourFingers);
         clearTimeout(timeoutFiveFingers);
       }
     }else if(hands!=prevHands){
       prevHands = hands;
       prevFingers = fingers;
       clearTimeout(timeoutZeroFingers);
+      clearTimeout(timeoutOneFingers);
+      clearTimeout(timeoutTwoFingers);
+      clearTimeout(timeoutThreeFingers);
+      clearTimeout(timeoutFourFingers);
       clearTimeout(timeoutFiveFingers);
+      
     }else if(fingers!=prevFingers){
       prevHands = hands;
       prevFingers = fingers;
       clearTimeout(timeoutZeroFingers);
+      clearTimeout(timeoutOneFingers);
+      clearTimeout(timeoutTwoFingers);
+      clearTimeout(timeoutThreeFingers);
+      clearTimeout(timeoutFourFingers);
       clearTimeout(timeoutFiveFingers);
+      
     }else{
     
     }
@@ -149,17 +238,13 @@ var leap_loop = function(){
             $(this).data("pointing", "true").addClass("leapHover");
             clearTimeout(timeoutPointedDiv);
             timeoutPointedDiv = setTimeout(action.pointed, 5000);
-            console.log("start "+  $(this).attr('id'));
-			//$('body').css('cursor', 'progress'); 
-			
-			//leapUI.selectItem();
+            //console.log("start "+  $(this).attr('id'));
           }
         }else{
           if($(this).data("pointing")=="true"){
             $(this).removeClass("leapHover").data("pointing", "");
             console.log("stop "+  $(this).attr('id'));
-            clearTimeout(timeoutPointedDiv);
-			//$('body').css('cursor', 'initial'); 
+            //clearTimeout(timeoutPointedDiv);
           }
         }
       });
@@ -176,12 +261,13 @@ var _debug_panel = {
     $("<div></div>")
       .addClass("debug_panel")
       .css({
-        "position":"absolute",
+        "position":"fixed",
         "bottom": "10px",
         "right": "10px",
         "border": "1px solid #ddd",
         "background-color": "#fafafa",
-        "padding": "10px"
+        "padding": "10px",
+        "z-index": "1000"
       })
       .appendTo("body");
     
@@ -191,30 +277,30 @@ var _debug_panel = {
     $(".debug_panel").append("<input value='5 Fingers' class='debug_five_finger' type='button' />");
     $(".debug_panel").append("<input value='0 Fingers' class='debug_zero_finger' type='button' />");
 
-	$(".debug_panel").append("<input value='Select Item' class='debug_selectItem_1' type='button' />");
-	$(".debug_panel").append("<input value='<<' class='debug_selectPrevItem' type='button' />");
-	$(".debug_panel").append("<input value='>>' class='debug_selectNextItem' type='button' />");
-	
-	$(".debug_panel").append("<input value='Select Order/Cart record' class='debug_selectRecord_1' type='button' />");
-	$(".debug_panel").append("<input value='<<' class='debug_selectPrevRecord' type='button' />");
-	$(".debug_panel").append("<input value='>>' class='debug_selectNextRecord' type='button' />");
-	
-	$(".debug_panel").append("<input value='Select Menu' class='debug_selectMainMenu_1' type='button' />");
-	$(".debug_panel").append("<input value='<<' class='debug_selectPrevMainMenu' type='button' />");
-	$(".debug_panel").append("<input value='>>' class='debug_selectNextMainMenu' type='button' />");	
-	
-	$(".debug_panel").append("<input value='Select Product Category' class='debug_selectProductListItem_1' type='button' />");
-	$(".debug_panel").append("<input value='<<' class='debug_selectPrevProductListItem' type='button' />");
-	$(".debug_panel").append("<input value='>>' class='debug_selectNextProductListItem' type='button' />");	
-	
-	$(".debug_panel").append("<input value='--->' class='debug_swipe_right' type='button' />");
+    $(".debug_panel").append("<input value='Select Item' class='debug_selectItem_1' type='button' />");
+    $(".debug_panel").append("<input value='<<' class='debug_selectPrevItem' type='button' />");
+    $(".debug_panel").append("<input value='>>' class='debug_selectNextItem' type='button' />");
+
+    $(".debug_panel").append("<input value='Select Order/Cart record' class='debug_selectRecord_1' type='button' />");
+    $(".debug_panel").append("<input value='<<' class='debug_selectPrevRecord' type='button' />");
+    $(".debug_panel").append("<input value='>>' class='debug_selectNextRecord' type='button' />");
+
+    $(".debug_panel").append("<input value='Select Menu' class='debug_selectMainMenu_1' type='button' />");
+    $(".debug_panel").append("<input value='<<' class='debug_selectPrevMainMenu' type='button' />");
+    $(".debug_panel").append("<input value='>>' class='debug_selectNextMainMenu' type='button' />");	
+
+    $(".debug_panel").append("<input value='Select Product Category' class='debug_selectProductListItem_1' type='button' />");
+    $(".debug_panel").append("<input value='<<' class='debug_selectPrevProductListItem' type='button' />");
+    $(".debug_panel").append("<input value='>>' class='debug_selectNextProductListItem' type='button' />");	
+
+    $(".debug_panel").append("<input value='--->' class='debug_swipe_right' type='button' />");
 	
     $(".debug_swipe_left").click(function(){
-	  $(".leapHover").removeClass("leapHover");
+      $(".leapHover").removeClass("leapHover");
       leapUI.test2($(".itemPageArrowImg").get(0));
     });
     $(".debug_swipe_right").click(function(){
-	  $(".leapHover").removeClass("leapHover");
+      $(".leapHover").removeClass("leapHover");
       leapUI.test2($(".itemPageArrowImg").get(1));
     });
     $(".debug_click").click(function(){
@@ -226,78 +312,77 @@ var _debug_panel = {
     $(".debug_zero_finger").click(function(){
       action.zeroFinger();
     });
-	
-	
-	$(".debug_selectItem_1").click(function(){
-		
-		$(".leapHover").removeClass("leapHover");
-		$("body").addClass("waiting1Sec");
-		leapUI.test("item_1");
+
+
+    $(".debug_selectItem_1").click(function(){
+      
+      $(".leapHover").removeClass("leapHover");
+      $("body").addClass("waiting1Sec");
+      leapUI.test("item_1");
     });
-	$(".debug_selectNextItem").click(function(){
-		var selectedItem = $(".item").index($(".leapHover")) + 1;		
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test("item_"+(selectedItem+1));
+    $(".debug_selectNextItem").click(function(){
+      var selectedItem = $(".item").index($(".leapHover")) + 1;		
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test("item_"+(selectedItem+1));
     });
-	
-	$(".debug_selectPrevItem").click(function(){
-		var selectedItem = $(".item").index($(".leapHover")) + 1;
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test("item_"+(selectedItem-1));
+
+    $(".debug_selectPrevItem").click(function(){
+      var selectedItem = $(".item").index($(".leapHover")) + 1;
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test("item_"+(selectedItem-1));
     });
-	
-	$(".debug_selectRecord_1").click(function(){
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".ui-accordion-header:first"));
+    
+    $(".debug_selectRecord_1").click(function(){
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".ui-accordion-header:first"));
     });
-	$(".debug_selectNextRecord").click(function(){
-		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".ui-accordion-header").get(selectedItem+1));
+    $(".debug_selectNextRecord").click(function(){
+      var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".ui-accordion-header").get(selectedItem+1));
     });
-	
-	$(".debug_selectPrevRecord").click(function(){
-		var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".ui-accordion-header").get(selectedItem-1));
+
+    $(".debug_selectPrevRecord").click(function(){
+      var selectedItem = $(".ui-accordion-header").index($(".leapHover"));		
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".ui-accordion-header").get(selectedItem-1));
     });
-	
-	
-	$(".debug_selectMainMenu_1").click(function(){
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".mainMenuContainer:first"));
+    
+    
+    $(".debug_selectMainMenu_1").click(function(){
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".mainMenuContainer:first"));
     });
-	$(".debug_selectNextMainMenu").click(function(){
-		var selectedItem = $(".mainMenuContainer").index($(".leapHover"));		
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".mainMenuContainer").get(selectedItem+1));
+    $(".debug_selectNextMainMenu").click(function(){
+      var selectedItem = $(".mainMenuContainer").index($(".leapHover"));		
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".mainMenuContainer").get(selectedItem+1));
     });
-	
-	$(".debug_selectPrevMainMenu").click(function(){
-		var selectedItem = $(".mainMenuContainer").index($(".leapHover"));		
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".mainMenuContainer").get(selectedItem-1));
+    
+    $(".debug_selectPrevMainMenu").click(function(){
+      var selectedItem = $(".mainMenuContainer").index($(".leapHover"));		
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".mainMenuContainer").get(selectedItem-1));
     });	
-	
-	
-	
-	$(".debug_selectProductListItem_1").click(function(){
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".productListItem:first"));
+    
+    
+    
+    $(".debug_selectProductListItem_1").click(function(){
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".productListItem:first"));
     });
-	$(".debug_selectNextProductListItem").click(function(){
-		var selectedItem = $(".productListItem").index($(".leapHover"));		
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".productListItem").get(selectedItem+1));
+    $(".debug_selectNextProductListItem").click(function(){
+      var selectedItem = $(".productListItem").index($(".leapHover"));		
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".productListItem").get(selectedItem+1));
     });
-	
-	$(".debug_selectPrevProductListItem").click(function(){
-		var selectedItem = $(".productListItem").index($(".leapHover"));		
-		$(".leapHover").removeClass("leapHover");
-		leapUI.test2($(".productListItem").get(selectedItem-1));
+    
+    $(".debug_selectPrevProductListItem").click(function(){
+      var selectedItem = $(".productListItem").index($(".leapHover"));		
+      $(".leapHover").removeClass("leapHover");
+      leapUI.test2($(".productListItem").get(selectedItem-1));
     });		
 	
-    
 	},
   
 	close: function(){
@@ -313,7 +398,6 @@ $(document).ready(function() {
   
   // for debug purpose only
   _debug_panel.init();
-  
   
   
   width = document.body.clientWidth;

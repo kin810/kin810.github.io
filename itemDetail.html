@@ -121,14 +121,14 @@ img.image{
 img.image:hover{border:1px solid #555;}
 
 
-.buyNow, .addToCart, .closeBox{
+.buyNowStyle, .addToCartStyle, .closeBox{
   padding:12px;font-size:1.2em;text-align:center;margin:2px 0;width:206px;
   cursor:pointer;color:#fff;
 }
-.buyNow{background-color:#2d29a3;}
-.addToCart{background-color:#ff9d00;}
-.buyNow:hover{background-color:#7491f7;}
-.addToCart:hover{background-color:#ffc77d;}
+.buyNowStyle{background-color:#2d29a3;}
+.addToCartStyle{background-color:#ff9d00;}
+.buyNowStyle:hover{background-color:#7491f7;}
+.addToCartStyle:hover{background-color:#ffc77d;}
 
 .commentContainer{margin-left:4px;margin-bottom:4px;}
 .commentItem{border:1px solid #ddd;margin-top:4px;margin-left:4px;}
@@ -136,7 +136,7 @@ img.image:hover{border:1px solid #555;}
 .commentInfo{padding:4px 8px;color:#555;border-bottom:1px solid #ddd;background-color:#fffae8;}
 span.commentDatetime{float:right;}
 .commentContent{padding:4px 8px;min-height:50px;}
-textarea.commentTextarea{width:100%;height:60px;}
+textarea.commentTextarea{width:100%;max-width:100%;height:60px;}
 
 .popupContainer{
   position:fixed;top:0;left:0;width:100%;height:100%;
@@ -152,7 +152,11 @@ textarea.commentTextarea{width:100%;height:60px;}
 .closeBox{background-color:#F8F8F8;border:1px solid #ddd;color:#222;}
 .closeBox:hover{background-color:#fbfbfb;}
 
-.quantityInput{font-size:3em;width:120px;border:2px solid #CA0000;}
+.popupInfoDiv{padding-top:30px;}
+div.quantityInputDiv{margin:10px;}
+.quantityInput{font-size:3em;width:120px;border:2px solid #CA0000;text-align:center;}
+div.popupInfoHeader{color:#000;font-size:1.3em;margin:10px;}
+div.popupInfoTip{color:#777;font-size:1em;margin:10px;}
 
 </style>
 
@@ -164,8 +168,8 @@ textarea.commentTextarea{width:100%;height:60px;}
   <div class="right_div">
     <img class="image" src="" />
     
-    <div class="buyNow">Buy Now</div>
-    <div class="addToCart">Add to Cart</div>
+    <div class="buyNowStyle buyNow">Buy Now</div>
+    <div class="addToCartStyle addToCart">Add to Cart</div>
   </div>
 
   <!-- The item name -->
@@ -245,8 +249,26 @@ textarea.commentTextarea{width:100%;height:60px;}
 
 
 
+<div class="gradientBlue buttonLink hoverHighlight verticalAlignMiddle includeShadow backButton" >
+  <div>
+    &lt; Back
+  </div>
+</div>
+
+
+
+
 <script>
+__config.enable_finger = true;
 var _showingPopup = false;
+
+// validate a number input
+// http://stackoverflow.com/questions/18082/validate-decimal-numbers-in-javascript-isnumeric
+var isNumber = function(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+
 
 var showBox = function(type){
   
@@ -254,9 +276,9 @@ var showBox = function(type){
   console.log(type);
   
   if(type=="buyNow"){
-    _toAdd = "<div class='buyNow pointable'>Buy Now</div>";
+    _toAdd = "<div class='buyNowStyle buyNowPopup pointable'>Buy Now</div>";
   }else if(type=="addToCart"){
-    _toAdd = "<div class='addToCart pointable'>Add to Cart</div>";
+    _toAdd = "<div class='addToCartStyle addToCartPopup pointable'>Add to Cart</div>";
   }else{
     // error
     
@@ -264,7 +286,8 @@ var showBox = function(type){
   
   var toAppend = "<div class='popupBox'>";
   
-  toAppend += "<div class='popupInfoDiv'><div >Quantity (1-5):</div><div ><input type='text' class='quantityInput' /></div></div>";
+  toAppend += "<div class='popupInfoDiv'><div class='popupInfoHeader'>Please enter the quantity:</div><div class='quantityInputDiv'><input type='text' class='quantityInput pointable' /></div>";
+  toAppend += "<div class='popupInfoTip'>Input with Leap Motion enabled (1-5 items only).<br/>Use \"0 Finger\" to Cancel</div></div>";
   toAppend += "<div class='popupButtonDiv'><div class='closeBox pointable'>Cancel</div>" + _toAdd + "</div>";
   toAppend += "</div>";
   
@@ -272,7 +295,29 @@ var showBox = function(type){
     .append(toAppend)
     .appendTo("body").show("drop");
     
+  $(".quantityInput").focus().click(function(){$(this).select()});
   _showingPopup = true;
+  
+  $(".buyNowPopup").click(function(){
+    var val = $(".quantityInput:visible").val();
+    if(isNumber( val )){
+      closeBox();
+      alert("Submitted order with " + val + " item(s)!");
+      
+    }else{
+      alert("Please input a number");
+    }
+  });
+  
+  $(".addToCartPopup").click(function(){
+    var val = $(".quantityInput:visible").val();
+    if(isNumber( val )){
+      closeBox();
+      alert("Added " + val + " item(s) to cart");
+    }else{
+      alert("Please input a number");
+    }
+  });
   
   $(".closeBox").click(function(){
     closeBox();
@@ -294,6 +339,7 @@ $(".buyNow").click(function(){
 $(".addToCart").click(function(){
   showBox("addToCart");
 });
+
 
 </script>
 </body>
