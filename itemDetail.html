@@ -37,8 +37,8 @@ var item_id = QueryString("id");
 
 item_id = parseInt(item_id);
 
-console.log("category = " + category);
-console.log("item_id = " + item_id);
+//console.log("category = " + category);
+//console.log("item_id = " + item_id);
 
 var xmlFileName = "";
 
@@ -60,12 +60,12 @@ $(document).ready(function () {
     success: function(xml) {
       $(xml).find('item:eq('+ item_id +')').each(function(){
         var _this = $(this);
-        console.log(_this.html());
-        console.log(_this.find("name").text());
-        console.log(_this.find("desc").text());
-        console.log(_this.find("imageName").text());
-        console.log(_this.find("price").text());
-        console.log(_this.find("rate").text());
+        //console.log(_this.html());
+        //console.log(_this.find("name").text());
+        //console.log(_this.find("desc").text());
+        //console.log(_this.find("imageName").text());
+        //console.log(_this.find("price").text());
+        //console.log(_this.find("rate").text());
         
         $(".header").html(_this.find("name").text());
         $(".description").html(_this.find("desc").text());
@@ -165,6 +165,15 @@ div.popupInfoTip{color:#777;font-size:1em;margin:10px;}
 .popupShippingInfoTextarea{display:none;}
 .popupShippingInfoTextarea textarea{width:100%;height:80px;}
 
+.popupItemCounterDiv{margin:14px;}
+span.itemCounter{
+  border:1px solid #ddd;
+  background-color:#fbfbfb;
+  font-size:3.3em;
+  padding:10px 20px;
+  display:inline-block;
+}
+span.pcs{display:inline-block;font-size:1.3em;margin-left:10px;}
 </style>
 
 </head>
@@ -321,8 +330,23 @@ var showBox = function(type){
   $(".buyNowPopup").click(function(){
     var val = $(".quantityInput:visible").val();
     if(isNumber( val )){
-      closeBox();
-      alert("Submitted order with " + val + " item(s)!");
+      //closeBox();
+      //alert("Submitted order with " + val + " item(s)!");
+      $(".popupBox").remove();
+      
+      var toAppendNew = "<div class='popupBox'>";
+      toAppendNew += "<div class='popupInfoDiv'><div class='popupInfoHeader'>Order submitted successfully!</div></div>";
+      toAppendNew += "<div class='popupItemCounterDiv'>In this order:<br/><span class='itemCounter'>"+ val +"</span><span class='pcs'>pcs</span></div>";
+      toAppendNew += "<div class='popupButtonDiv'><div class='done closeBox pointable'> Done </div><div class='viewOrder closeBox pointable'> View Order </div></div>";
+      toAppendNew += "</div>";
+      $(".popupContainer").append(toAppendNew);
+      
+      $(".done").click(function(){
+        closeBox();
+      });
+      $(".viewOrder").click(function(){
+        location.href = "./orderHistory.html";
+      });
       
     }else{
       alert("Please input a number");
@@ -331,12 +355,30 @@ var showBox = function(type){
   
   $(".addToCartPopup").click(function(){
     var val = $(".quantityInput:visible").val();
+    
     if(isNumber( val )){
-      closeBox();
-      alert("Added " + val + " item(s) to cart");
+      //closeBox();
+      //alert("Added " + val + " item(s) to cart");
+      $(".popupBox").remove();
+      
+      var toAppendNew = "<div class='popupBox'>";
+      toAppendNew += "<div class='popupInfoDiv'><div class='popupInfoHeader'>Added the item(s) to cart successfully!</div></div>";
+      toAppendNew += "<div class='popupItemCounterDiv'>In this order:<br/><span class='itemCounter'>"+ val +"</span><span class='pcs'>pcs</span></div>";
+      toAppendNew += "<div class='popupButtonDiv'><div class='done closeBox pointable'> Done </div><div class='viewOrder closeBox pointable'> View Cart Items </div></div>";
+      toAppendNew += "</div>";
+      $(".popupContainer").append(toAppendNew);
+      
+      $(".done").click(function(){
+        closeBox();
+      });
+      $(".viewOrder").click(function(){
+        location.href = "./cartItem.html";
+      });
+      
     }else{
       alert("Please input a number");
     }
+    
   });
   
   $(".closeBox").click(function(){
