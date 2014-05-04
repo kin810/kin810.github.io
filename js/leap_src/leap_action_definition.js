@@ -397,7 +397,7 @@ var _debug_panel = {
 $(document).ready(function() {
   
   // for debug purpose only
-  _debug_panel.init();
+  //_debug_panel.init();
   
   
   width = document.body.clientWidth;
