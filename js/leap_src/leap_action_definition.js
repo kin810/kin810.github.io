@@ -147,7 +147,9 @@ var leap_loop = function(){
         if(checkContain($(this), $(".cursor"))){
           if($(this).data("pointing")!="true"){
             $(this).data("pointing", "true").addClass("leapHover");
-            timeoutPointedDiv = setTimeout(action.pointed, 3000);
+            clearTimeout(timeoutPointedDiv);
+            timeoutPointedDiv = setTimeout(action.pointed, 5000);
+            console.log("start "+  $(this).attr('id'));
 			//$('body').css('cursor', 'progress'); 
 			
 			//leapUI.selectItem();
@@ -155,6 +157,7 @@ var leap_loop = function(){
         }else{
           if($(this).data("pointing")=="true"){
             $(this).removeClass("leapHover").data("pointing", "");
+            console.log("stop "+  $(this).attr('id'));
             clearTimeout(timeoutPointedDiv);
 			//$('body').css('cursor', 'initial'); 
           }
