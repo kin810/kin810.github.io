@@ -291,3 +291,11 @@ body a{
 	font-size:45px;
 	font-weight:bold;
 }
+
+html{
+	/*cursor:url("image/handcursor.png"), auto;   */
+	/*cursor:url("image/loading_2sec.gif"), auto; */
+	/*cursor:url("image/loading_3sec.gif"), auto; */
+	/*cursor:url("image/loading_4sec.gif"), auto; */
+	cursor: url(image/handcursor.png),auto	 !important;
+}
