@@ -237,7 +237,7 @@ var leap_loop = function(){
           if($(this).data("pointing")!="true"){
             $(this).data("pointing", "true").addClass("leapHover");
             clearTimeout(timeoutPointedDiv);
-            timeoutPointedDiv = setTimeout(action.pointed, 5000);
+            timeoutPointedDiv = setTimeout(action.pointed, 4000);
             //console.log("start "+  $(this).attr('id'));
           }
         }else{
