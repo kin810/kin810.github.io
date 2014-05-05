@@ -233,7 +233,7 @@ var leap_loop = function(){
         "left": pos_left + "px"
       }).find(".inner").css("width", sizeDifference + "%");
       
-      $("div.pointable").each(function(){
+      $(".pointable").each(function(){
         if(checkContain($(this), $(".cursor"))){
         
           if($(this).data("pointing")!="true"){
