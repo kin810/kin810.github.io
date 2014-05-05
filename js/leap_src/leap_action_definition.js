@@ -239,9 +239,9 @@ var leap_loop = function(){
           if($(this).data("pointing")!="true"){
             $(this).data("pointing", "true").addClass("leapHover");
             clearTimeout(timeoutPointedDiv);
-            timeoutPointedDiv = setTimeout(action.pointed, 3600);
+            timeoutPointedDiv = setTimeout(action.pointed, 1200);
             
-            $('body').append("<img src='image/loading_5sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
+            $('body').append("<img src='image/loading_2sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
             $('.temp_id_loading').css('position', 'absolute');
             
             $('.temp_id_loading').css('top', $(this).offset().top);
@@ -253,7 +253,7 @@ var leap_loop = function(){
           if($(this).data("pointing")=="true"){
             $(this).removeClass("leapHover").data("pointing", "");
             $('.temp_id_loading:not(:last)').remove();
-            $('.temp_id_loading:last').fadeTo("fast",0.95).delay(3600).fadeOut();
+            $('.temp_id_loading:last').fadeTo("fast",0.95).delay(1200).fadeOut();
             //clearTimeout(timeoutPointedDiv);
           }
         }
