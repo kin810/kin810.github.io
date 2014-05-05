@@ -91,18 +91,7 @@ var uiRender ={
 
 	},
 	addArrowNav: function(){
-    $(".itemPageArrowImg").click(function(){
-      alert("hello");
-      if(i==0){
-        leapUI.navNextProductItemPage(-1);
-      }else if (i==1){
-        leapUI.navNextProductItemPage(1);
-      }
-				
-    
-    });
-    /*
-		$(".itemPageArrowImg").each(function(i,v){
+		$(".navArrow").each(function(i,v){
 			$(v).on("click",function(){
 			
 				if(i==0){
@@ -114,7 +103,6 @@ var uiRender ={
 			
 			});
 		});
-	  */
 	},
 	productListItemAddMouseover: function(){
 		$(".productListContainer").children().each(function(i,v){

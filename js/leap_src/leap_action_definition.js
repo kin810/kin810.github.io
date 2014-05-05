@@ -237,15 +237,15 @@ var leap_loop = function(){
           if($(this).data("pointing")!="true"){
             $(this).data("pointing", "true").addClass("leapHover");
             clearTimeout(timeoutPointedDiv);
-            timeoutPointedDiv = setTimeout(action.pointed, 4000);
+            timeoutPointedDiv = setTimeout(action.pointed, 3000);
             //console.log("start "+  $(this).attr('id'));
 			
 			
 			//need testing, should be ok
-			$('body').append("<img src='image/loading_5sec.gif' id='temp_id_loading'/>")
-			$('#temp_id_loading').css('position', 'absolute');
-			$('#temp_id_loading').css('top', $(this).offset().top);
-			$('#temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
+			$('body').append("<img src='image/loading_5sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
+			$('.temp_id_loading').css('position', 'absolute');
+			$('.temp_id_loading').css('top', $(this).offset().top);
+			$('.temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
 			
           }
         }else{
@@ -255,7 +255,7 @@ var leap_loop = function(){
             //clearTimeout(timeoutPointedDiv);
 			
 			//need testing 2
-			$('#temp_id_loading').remove();
+			$('.temp_id_loading').remove();
 			
           }
         }
