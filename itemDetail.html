@@ -58,7 +58,7 @@ $(document).ready(function () {
     cache: false,
     dataType: "xml",
     success: function(xml) {
-      $(xml).find('item:eq('+ item_id +')').each(function(){
+      $(xml).find('item:eq('+ (item_id-1) +')').each(function(){
         var _this = $(this);
         //console.log(_this.html());
         //console.log(_this.find("name").text());
