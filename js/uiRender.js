@@ -53,7 +53,7 @@ var uiRender ={
 	
 	anchorDivAddMouseClick: function(){
 	
-		$("div.pointable").each(function (i,v){
+		$(".pointable").each(function (i,v){
 			
 			var targetHref = $(v).data("href-target");
 			
