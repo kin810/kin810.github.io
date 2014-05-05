@@ -234,6 +234,7 @@ var leap_loop = function(){
       cnt =1 
       $("div.pointable").each(function(){
         if(checkContain($(this), $(".cursor"))){
+        
           if($(this).data("pointing")!="true"){
             $(this).data("pointing", "true").addClass("leapHover");
             clearTimeout(timeoutPointedDiv);
@@ -242,7 +243,7 @@ var leap_loop = function(){
 			
 			
             //need testing, should be ok
-            $('.temp_id_loading').addClass("temp_id_loading_inactive");
+            //$('.temp_id_loading').addClass("temp_id_loading_inactive");
             
             
             
@@ -254,6 +255,7 @@ var leap_loop = function(){
             $('.temp_id_loading').css('top', $(this).offset().top);
             $('.temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
             
+            /*
             clearTimeout(timeOutImage);
             
             var timeOutImageFunction = function(){
@@ -262,8 +264,9 @@ var leap_loop = function(){
               clearTimeout(timeOutImage);
             };
             var timeOutImage = setTimeout(timeOutImageFunction, 3000);
-            
+            */
           }
+          
         }else{
           if($(this).data("pointing")=="true"){
             console.log("stop "+  $(this).attr('id'));
@@ -279,12 +282,13 @@ var leap_loop = function(){
             */
             
             $(this).removeClass("leapHover").data("pointing", "");
-            clearTimeout(timeoutPointedDiv);
+            $('.temp_id_loading').remove();
+            //clearTimeout(timeoutPointedDiv);
 			
             //need testing 2
             //$('.temp_id_loading').remove();
-            $('.temp_id_loading_inactive').remove();
-            clearTimeout(timeOutImage);
+            //$('.temp_id_loading_inactive').remove();
+            //clearTimeout(timeOutImage);
 			
           }
         }
