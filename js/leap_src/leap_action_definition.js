@@ -197,6 +197,7 @@ var leap_loop = function(){
     
     if(fingers==0 && hands==0){
       $(".cursor").hide();
+      $('.temp_id_loading').remove();
       $(".leapHover").removeClass("leapHover").data("pointing", "");
       clearTimeout(timeoutPointedDiv);
     }
@@ -231,7 +232,7 @@ var leap_loop = function(){
         "top": pos_top + "px",
         "left": pos_left + "px"
       }).find(".inner").css("width", sizeDifference + "%");
-      cnt =1 
+      
       $("div.pointable").each(function(){
         if(checkContain($(this), $(".cursor"))){
         
@@ -239,57 +240,21 @@ var leap_loop = function(){
             $(this).data("pointing", "true").addClass("leapHover");
             clearTimeout(timeoutPointedDiv);
             timeoutPointedDiv = setTimeout(action.pointed, 3000);
-            //console.log("start "+  $(this).attr('id'));
-			
-			
-            //need testing, should be ok
-            //$('.temp_id_loading').addClass("temp_id_loading_inactive");
-            
-            
             
             $('body').append("<img src='image/loading_5sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
             $('.temp_id_loading').css('position', 'absolute');
             
-            console.log($(this).offset().top + " | "+ ($(this).offset().left  + $(this).width() - 60));
-            
             $('.temp_id_loading').css('top', $(this).offset().top);
             $('.temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
             
-            /*
-            clearTimeout(timeOutImage);
-            
-            var timeOutImageFunction = function(){
-              $('.temp_id_loading').addClass("temp_id_loading_inactive");
-              $(".temp_id_loading_inactive").remove();
-              clearTimeout(timeOutImage);
-            };
-            var timeOutImage = setTimeout(timeOutImageFunction, 3000);
-            */
           }
           
         }else{
           if($(this).data("pointing")=="true"){
-            console.log("stop "+  $(this).attr('id'));
-            
-            /*
-            if($(this).hasClass("leapHover")){
-              $(this).removeClass("leapHover").data("pointing", "");
-              $('.temp_id_loading').remove();
-              $('.temp_id_loading_inactive').remove();
-            }else{
-              
-            }
-            */
-            
             $(this).removeClass("leapHover").data("pointing", "");
-            $('.temp_id_loading').remove();
+            $('.temp_id_loading:not(:last)').remove();
+            $('.temp_id_loading:last').fadeTo("fast",0.95).delay(3000).fadeOut();
             //clearTimeout(timeoutPointedDiv);
-			
-            //need testing 2
-            //$('.temp_id_loading').remove();
-            //$('.temp_id_loading_inactive').remove();
-            //clearTimeout(timeOutImage);
-			
           }
         }
       });

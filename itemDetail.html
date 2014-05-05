@@ -330,8 +330,7 @@ var showBox = function(type){
   $(".buyNowPopup").click(function(){
     var val = $(".quantityInput:visible").val();
     if(isNumber( val )){
-      //closeBox();
-      //alert("Submitted order with " + val + " item(s)!");
+    
       $(".popupBox").remove();
       
       var toAppendNew = "<div class='popupBox'>";
@@ -357,8 +356,7 @@ var showBox = function(type){
     var val = $(".quantityInput:visible").val();
     
     if(isNumber( val )){
-      //closeBox();
-      //alert("Added " + val + " item(s) to cart");
+    
       $(".popupBox").remove();
       
       var toAppendNew = "<div class='popupBox'>";
