@@ -231,7 +231,7 @@ var leap_loop = function(){
         "top": pos_top + "px",
         "left": pos_left + "px"
       }).find(".inner").css("width", sizeDifference + "%");
-      
+      cnt =1 
       $("div.pointable").each(function(){
         if(checkContain($(this), $(".cursor"))){
           if($(this).data("pointing")!="true"){
@@ -242,9 +242,9 @@ var leap_loop = function(){
 			
 			
             //need testing, should be ok
-            clearTimeout(timeOutImage);
-            $('.temp_id_loading').addClass("temp_id_loading_inactive")
-            $(".temp_id_loading_inactive").remove();
+            $('.temp_id_loading').addClass("temp_id_loading_inactive");
+            
+            
             
             $('body').append("<img src='image/loading_5sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
             $('.temp_id_loading').css('position', 'absolute');
@@ -254,18 +254,32 @@ var leap_loop = function(){
             $('.temp_id_loading').css('top', $(this).offset().top);
             $('.temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
             
+            clearTimeout(timeOutImage);
+            
             var timeOutImageFunction = function(){
               $('.temp_id_loading').addClass("temp_id_loading_inactive");
               $(".temp_id_loading_inactive").remove();
               clearTimeout(timeOutImage);
             };
             var timeOutImage = setTimeout(timeOutImageFunction, 3000);
+            
           }
         }else{
           if($(this).data("pointing")=="true"){
-            $(this).removeClass("leapHover").data("pointing", "");
             console.log("stop "+  $(this).attr('id'));
-            //clearTimeout(timeoutPointedDiv);
+            
+            /*
+            if($(this).hasClass("leapHover")){
+              $(this).removeClass("leapHover").data("pointing", "");
+              $('.temp_id_loading').remove();
+              $('.temp_id_loading_inactive').remove();
+            }else{
+              
+            }
+            */
+            
+            $(this).removeClass("leapHover").data("pointing", "");
+            clearTimeout(timeoutPointedDiv);
 			
             //need testing 2
             //$('.temp_id_loading').remove();
