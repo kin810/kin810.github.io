@@ -14,7 +14,7 @@ var action = {
   
   // Leave blank for undefined actions
   zeroFinger : function(){
-    if(__config.enable_finger && _showingPopup){
+    if(__config.enable_finger && _showingPopup && $(".quantityInput:visible").is(":focus")){
       // close the popup box
       $(".closeBox").trigger("click");
       
@@ -23,7 +23,7 @@ var action = {
   },
   
   oneFinger : function(){
-    if(__config.enable_finger && _showingPopup){
+    if(__config.enable_finger && _showingPopup && $(".quantityInput:visible").is(":focus")){
       // put the value
       $(".quantityInput").val("1").blur();
       
@@ -32,7 +32,7 @@ var action = {
   },
   
   twoFinger : function(){
-    if(__config.enable_finger && _showingPopup){
+    if(__config.enable_finger && _showingPopup && $(".quantityInput:visible").is(":focus")){
       // put the value
       $(".quantityInput").val("2").blur();
       
@@ -41,7 +41,7 @@ var action = {
   },
   
   threeFinger : function(){
-    if(__config.enable_finger && _showingPopup){
+    if(__config.enable_finger && _showingPopup && $(".quantityInput:visible").is(":focus")){
       // put the value
       $(".quantityInput").val("3").blur();
       
@@ -50,7 +50,7 @@ var action = {
   },
   
   fourFinger : function(){
-    if(__config.enable_finger && _showingPopup){
+    if(__config.enable_finger && _showingPopup && $(".quantityInput:visible").is(":focus")){
       // put the value
       $(".quantityInput").val("4").blur();
       
@@ -58,7 +58,7 @@ var action = {
   },
   
   fiveFinger : function(){
-    if(__config.enable_finger && _showingPopup){
+    if(__config.enable_finger && _showingPopup && $(".quantityInput:visible").is(":focus")){
       // put the value
       $(".quantityInput").val("5").blur();
       

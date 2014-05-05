@@ -242,8 +242,12 @@ var leap_loop = function(){
 			
 			
 			//need testing, should be ok
+      $('.temp_id_loading').remove();
 			$('body').append("<img src='image/loading_5sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
 			$('.temp_id_loading').css('position', 'absolute');
+      
+      console.log($(this).offset().top + " | "+ ($(this).offset().left  + $(this).width() - 60));
+      
 			$('.temp_id_loading').css('top', $(this).offset().top);
 			$('.temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
 			
