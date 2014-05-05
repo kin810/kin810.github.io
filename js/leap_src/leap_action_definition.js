@@ -241,16 +241,25 @@ var leap_loop = function(){
             //console.log("start "+  $(this).attr('id'));
 			
 			
-			//need testing, should be ok
-      $('.temp_id_loading').remove();
-			$('body').append("<img src='image/loading_5sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
-			$('.temp_id_loading').css('position', 'absolute');
-      
-      console.log($(this).offset().top + " | "+ ($(this).offset().left  + $(this).width() - 60));
-      
-			$('.temp_id_loading').css('top', $(this).offset().top);
-			$('.temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
-			
+            //need testing, should be ok
+            clearTimeout(timeOutImage);
+            $('.temp_id_loading').addClass("temp_id_loading_inactive")
+            $(".temp_id_loading_inactive").remove();
+            
+            $('body').append("<img src='image/loading_5sec.gif?"+ Math.random() +"' class='temp_id_loading'/>")
+            $('.temp_id_loading').css('position', 'absolute');
+            
+            console.log($(this).offset().top + " | "+ ($(this).offset().left  + $(this).width() - 60));
+            
+            $('.temp_id_loading').css('top', $(this).offset().top);
+            $('.temp_id_loading').css('left', $(this).offset().left  + $(this).width() - 60);
+            
+            var timeOutImageFunction = function(){
+              $('.temp_id_loading').addClass("temp_id_loading_inactive");
+              $(".temp_id_loading_inactive").remove();
+              clearTimeout(timeOutImage);
+            };
+            var timeOutImage = setTimeout(timeOutImageFunction, 3000);
           }
         }else{
           if($(this).data("pointing")=="true"){
@@ -258,8 +267,10 @@ var leap_loop = function(){
             console.log("stop "+  $(this).attr('id'));
             //clearTimeout(timeoutPointedDiv);
 			
-			//need testing 2
-			$('.temp_id_loading').remove();
+            //need testing 2
+            //$('.temp_id_loading').remove();
+            $('.temp_id_loading_inactive').remove();
+            clearTimeout(timeOutImage);
 			
           }
         }
