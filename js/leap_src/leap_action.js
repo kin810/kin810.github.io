@@ -97,7 +97,7 @@ var action = {
 	
 	*/
 	
-	leapUI.navNextProductItemPage(-1);
+	leapUI.navNextProductItemPage(1);
   },
   
   swipeRight: function(){
@@ -130,7 +130,7 @@ var action = {
 
 	leapUI.selectItem();	
 	*/
-	leapUI.navNextProductItemPage(1);
+	leapUI.navNextProductItemPage(-1);
 	
   },
   
